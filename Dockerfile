@@ -7,7 +7,7 @@ COPY ./app /app/
 RUN npm run build
 
 # Copy built frontend into Nginx image
-FROM nginx:1.22
+FROM nginx:1.25
 COPY --from=build-stage /app/build/ /usr/share/nginx/html
 # Default Nginx config for node
 COPY --from=build-stage /nginx.conf /etc/nginx/conf.d/default.conf
